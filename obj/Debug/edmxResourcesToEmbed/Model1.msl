@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MAHASISWAModelStoreContainer" CdmEntityContainer="MAHASISWAEntities">
+    <EntitySetMapping Name="JADWALs">
+      <EntityTypeMapping TypeName="MAHASISWAModel.JADWAL">
+        <MappingFragment StoreEntitySet="JADWAL">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_MAHASISWA" ColumnName="ID_MAHASISWA" />
+          <ScalarProperty Name="ID_PENGAJAR" ColumnName="ID_PENGAJAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAHASISWAs">
+      <EntityTypeMapping TypeName="MAHASISWAModel.MAHASISWA">
+        <MappingFragment StoreEntitySet="MAHASISWA">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAKULs">
+      <EntityTypeMapping TypeName="MAHASISWAModel.MAKUL">
+        <MappingFragment StoreEntitySet="MAKUL">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="SKS" ColumnName="SKS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PENGAJARs">
+      <EntityTypeMapping TypeName="MAHASISWAModel.PENGAJAR">
+        <MappingFragment StoreEntitySet="PENGAJAR">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="ID_MAKUL" ColumnName="ID_MAKUL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

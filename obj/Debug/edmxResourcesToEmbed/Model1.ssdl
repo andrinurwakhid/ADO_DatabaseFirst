@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MAHASISWAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="JADWAL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_MAHASISWA" Type="int" />
+    <Property Name="ID_PENGAJAR" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MAHASISWA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="50" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+    <Property Name="ADDRESS" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MAKUL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="50" />
+    <Property Name="SKS" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="PENGAJAR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="50" />
+    <Property Name="ID_MAKUL" Type="int" />
+  </EntityType>
+  <Association Name="FK_JADWAL_MAHASISWA">
+    <End Role="MAHASISWA" Type="Self.MAHASISWA" Multiplicity="0..1" />
+    <End Role="JADWAL" Type="Self.JADWAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAHASISWA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="JADWAL">
+        <PropertyRef Name="ID_MAHASISWA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JADWAL_PENGAJAR">
+    <End Role="PENGAJAR" Type="Self.PENGAJAR" Multiplicity="1" />
+    <End Role="JADWAL" Type="Self.JADWAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PENGAJAR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="JADWAL">
+        <PropertyRef Name="ID_PENGAJAR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PENGAJAR_MAKUL">
+    <End Role="MAKUL" Type="Self.MAKUL" Multiplicity="0..1" />
+    <End Role="PENGAJAR" Type="Self.PENGAJAR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAKUL">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PENGAJAR">
+        <PropertyRef Name="ID_MAKUL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MAHASISWAModelStoreContainer">
+    <EntitySet Name="JADWAL" EntityType="Self.JADWAL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAHASISWA" EntityType="Self.MAHASISWA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAKUL" EntityType="Self.MAKUL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PENGAJAR" EntityType="Self.PENGAJAR" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_JADWAL_MAHASISWA" Association="Self.FK_JADWAL_MAHASISWA">
+      <End Role="MAHASISWA" EntitySet="MAHASISWA" />
+      <End Role="JADWAL" EntitySet="JADWAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JADWAL_PENGAJAR" Association="Self.FK_JADWAL_PENGAJAR">
+      <End Role="PENGAJAR" EntitySet="PENGAJAR" />
+      <End Role="JADWAL" EntitySet="JADWAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PENGAJAR_MAKUL" Association="Self.FK_PENGAJAR_MAKUL">
+      <End Role="MAKUL" EntitySet="MAKUL" />
+      <End Role="PENGAJAR" EntitySet="PENGAJAR" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

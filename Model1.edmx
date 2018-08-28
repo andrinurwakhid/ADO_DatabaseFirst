@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MAHASISWAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="JADWAL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_MAHASISWA" Type="int" />
+          <Property Name="ID_PENGAJAR" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MAHASISWA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MAKUL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="SKS" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="PENGAJAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="ID_MAKUL" Type="int" />
+        </EntityType>
+        <Association Name="FK_JADWAL_MAHASISWA">
+          <End Role="MAHASISWA" Type="Self.MAHASISWA" Multiplicity="0..1" />
+          <End Role="JADWAL" Type="Self.JADWAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAHASISWA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="JADWAL">
+              <PropertyRef Name="ID_MAHASISWA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JADWAL_PENGAJAR">
+          <End Role="PENGAJAR" Type="Self.PENGAJAR" Multiplicity="1" />
+          <End Role="JADWAL" Type="Self.JADWAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PENGAJAR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="JADWAL">
+              <PropertyRef Name="ID_PENGAJAR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PENGAJAR_MAKUL">
+          <End Role="MAKUL" Type="Self.MAKUL" Multiplicity="0..1" />
+          <End Role="PENGAJAR" Type="Self.PENGAJAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAKUL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PENGAJAR">
+              <PropertyRef Name="ID_MAKUL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MAHASISWAModelStoreContainer">
+          <EntitySet Name="JADWAL" EntityType="Self.JADWAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MAHASISWA" EntityType="Self.MAHASISWA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MAKUL" EntityType="Self.MAKUL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PENGAJAR" EntityType="Self.PENGAJAR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_JADWAL_MAHASISWA" Association="Self.FK_JADWAL_MAHASISWA">
+            <End Role="MAHASISWA" EntitySet="MAHASISWA" />
+            <End Role="JADWAL" EntitySet="JADWAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JADWAL_PENGAJAR" Association="Self.FK_JADWAL_PENGAJAR">
+            <End Role="PENGAJAR" EntitySet="PENGAJAR" />
+            <End Role="JADWAL" EntitySet="JADWAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PENGAJAR_MAKUL" Association="Self.FK_PENGAJAR_MAKUL">
+            <End Role="MAKUL" EntitySet="MAKUL" />
+            <End Role="PENGAJAR" EntitySet="PENGAJAR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MAHASISWAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="JADWAL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_MAHASISWA" Type="Int32" />
+          <Property Name="ID_PENGAJAR" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MAHASISWA" Relationship="Self.FK_JADWAL_MAHASISWA" FromRole="JADWAL" ToRole="MAHASISWA" />
+          <NavigationProperty Name="PENGAJAR" Relationship="Self.FK_JADWAL_PENGAJAR" FromRole="JADWAL" ToRole="PENGAJAR" />
+        </EntityType>
+        <EntityType Name="MAHASISWA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="JADWALs" Relationship="Self.FK_JADWAL_MAHASISWA" FromRole="MAHASISWA" ToRole="JADWAL" />
+        </EntityType>
+        <EntityType Name="MAKUL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SKS" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PENGAJARs" Relationship="Self.FK_PENGAJAR_MAKUL" FromRole="MAKUL" ToRole="PENGAJAR" />
+        </EntityType>
+        <EntityType Name="PENGAJAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_MAKUL" Type="Int32" />
+          <NavigationProperty Name="JADWALs" Relationship="Self.FK_JADWAL_PENGAJAR" FromRole="PENGAJAR" ToRole="JADWAL" />
+          <NavigationProperty Name="MAKUL" Relationship="Self.FK_PENGAJAR_MAKUL" FromRole="PENGAJAR" ToRole="MAKUL" />
+        </EntityType>
+        <Association Name="FK_JADWAL_MAHASISWA">
+          <End Role="MAHASISWA" Type="Self.MAHASISWA" Multiplicity="0..1" />
+          <End Role="JADWAL" Type="Self.JADWAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAHASISWA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="JADWAL">
+              <PropertyRef Name="ID_MAHASISWA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JADWAL_PENGAJAR">
+          <End Role="PENGAJAR" Type="Self.PENGAJAR" Multiplicity="1" />
+          <End Role="JADWAL" Type="Self.JADWAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PENGAJAR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="JADWAL">
+              <PropertyRef Name="ID_PENGAJAR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PENGAJAR_MAKUL">
+          <End Role="MAKUL" Type="Self.MAKUL" Multiplicity="0..1" />
+          <End Role="PENGAJAR" Type="Self.PENGAJAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAKUL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PENGAJAR">
+              <PropertyRef Name="ID_MAKUL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MAHASISWAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="JADWALs" EntityType="Self.JADWAL" />
+          <EntitySet Name="MAHASISWAs" EntityType="Self.MAHASISWA" />
+          <EntitySet Name="MAKULs" EntityType="Self.MAKUL" />
+          <EntitySet Name="PENGAJARs" EntityType="Self.PENGAJAR" />
+          <AssociationSet Name="FK_JADWAL_MAHASISWA" Association="Self.FK_JADWAL_MAHASISWA">
+            <End Role="MAHASISWA" EntitySet="MAHASISWAs" />
+            <End Role="JADWAL" EntitySet="JADWALs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JADWAL_PENGAJAR" Association="Self.FK_JADWAL_PENGAJAR">
+            <End Role="PENGAJAR" EntitySet="PENGAJARs" />
+            <End Role="JADWAL" EntitySet="JADWALs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PENGAJAR_MAKUL" Association="Self.FK_PENGAJAR_MAKUL">
+            <End Role="MAKUL" EntitySet="MAKULs" />
+            <End Role="PENGAJAR" EntitySet="PENGAJARs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MAHASISWAModelStoreContainer" CdmEntityContainer="MAHASISWAEntities">
+          <EntitySetMapping Name="JADWALs">
+            <EntityTypeMapping TypeName="MAHASISWAModel.JADWAL">
+              <MappingFragment StoreEntitySet="JADWAL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_MAHASISWA" ColumnName="ID_MAHASISWA" />
+                <ScalarProperty Name="ID_PENGAJAR" ColumnName="ID_PENGAJAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MAHASISWAs">
+            <EntityTypeMapping TypeName="MAHASISWAModel.MAHASISWA">
+              <MappingFragment StoreEntitySet="MAHASISWA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MAKULs">
+            <EntityTypeMapping TypeName="MAHASISWAModel.MAKUL">
+              <MappingFragment StoreEntitySet="MAKUL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="SKS" ColumnName="SKS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PENGAJARs">
+            <EntityTypeMapping TypeName="MAHASISWAModel.PENGAJAR">
+              <MappingFragment StoreEntitySet="PENGAJAR">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID_MAKUL" ColumnName="ID_MAKUL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

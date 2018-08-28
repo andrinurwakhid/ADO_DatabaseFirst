@@ -1,0 +1,10 @@
+D:\PT Mitra Integrasi Informatika\Bootcamp\Materi\6 Visual Studio\Project\ADO_DatabaseFirst\ADO_DatabaseFirst\bin\Debug\ADO_DatabaseFirst.exe.config
+D:\PT Mitra Integrasi Informatika\Bootcamp\Materi\6 Visual Studio\Project\ADO_DatabaseFirst\ADO_DatabaseFirst\bin\Debug\ADO_DatabaseFirst.exe
+D:\PT Mitra Integrasi Informatika\Bootcamp\Materi\6 Visual Studio\Project\ADO_DatabaseFirst\ADO_DatabaseFirst\bin\Debug\ADO_DatabaseFirst.pdb
+D:\PT Mitra Integrasi Informatika\Bootcamp\Materi\6 Visual Studio\Project\ADO_DatabaseFirst\ADO_DatabaseFirst\bin\Debug\EntityFramework.dll
+D:\PT Mitra Integrasi Informatika\Bootcamp\Materi\6 Visual Studio\Project\ADO_DatabaseFirst\ADO_DatabaseFirst\bin\Debug\EntityFramework.SqlServer.dll
+D:\PT Mitra Integrasi Informatika\Bootcamp\Materi\6 Visual Studio\Project\ADO_DatabaseFirst\ADO_DatabaseFirst\bin\Debug\EntityFramework.xml
+D:\PT Mitra Integrasi Informatika\Bootcamp\Materi\6 Visual Studio\Project\ADO_DatabaseFirst\ADO_DatabaseFirst\bin\Debug\EntityFramework.SqlServer.xml
+D:\PT Mitra Integrasi Informatika\Bootcamp\Materi\6 Visual Studio\Project\ADO_DatabaseFirst\ADO_DatabaseFirst\obj\Debug\ADO_DatabaseFirst.csprojResolveAssemblyReference.cache
+D:\PT Mitra Integrasi Informatika\Bootcamp\Materi\6 Visual Studio\Project\ADO_DatabaseFirst\ADO_DatabaseFirst\obj\Debug\ADO_DatabaseFirst.exe
+D:\PT Mitra Integrasi Informatika\Bootcamp\Materi\6 Visual Studio\Project\ADO_DatabaseFirst\ADO_DatabaseFirst\obj\Debug\ADO_DatabaseFirst.pdb
