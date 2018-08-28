@@ -65,23 +65,23 @@ namespace ADO_DatabaseFirst
                 case 1:
                     MahasiswaController panggilmhs = new MahasiswaController();
                     panggilmhs.InsertMHS();
-                    System.Console.Read();
-                    goto m1;
+                    Console.WriteLine("Sukses");
+                    break;
                 case 2:
                     DosenController panggildosen = new DosenController();
                     panggildosen.InsertDOSEN();
-                    System.Console.Read();
-                    goto m1;
+                    Console.WriteLine("Sukses");
+                    break;
                 case 3:
                     MakulController panggilmakul = new MakulController();
                     panggilmakul.InsertMK();
-                    System.Console.Read();
-                    goto m1;
+                    Console.WriteLine("Sukses");
+                    break;
                 case 4:
                     JadwalController panggiljadwal = new JadwalController();
                     panggiljadwal.InsertJADWAL();
-                    System.Console.Read();
-                    goto m1;
+                    Console.WriteLine("Sukses");
+                    break;
                 case 5:
                     break;
                 default:
@@ -103,22 +103,22 @@ namespace ADO_DatabaseFirst
                 case 1:
                     MahasiswaController panggilmhs = new MahasiswaController();
                     panggilmhs.GetAllMahasiswa();
-                    System.Console.Read();
+                    Console.WriteLine("Sukses");
                     break;
                 case 2:
                     DosenController panggildosen = new DosenController();
                     panggildosen.GetAllDosen();
-                    System.Console.Read();
+                    Console.WriteLine("Sukses");
                     break;
                 case 3:
                     MakulController panggilmakul = new MakulController();
                     panggilmakul.GetAllMakul();
-                    System.Console.Read();
+                    Console.WriteLine("Sukses");
                     break;
                 case 4:
                     JadwalController panggiljadwal = new JadwalController();
                     panggiljadwal.GetAllJadwal();
-                    System.Console.Read();
+                    Console.WriteLine("Sukses");
                     break;
                 case 5:
                     break;
@@ -143,28 +143,28 @@ namespace ADO_DatabaseFirst
                     input1 = Convert.ToInt32(System.Console.ReadLine());
                     MahasiswaController panggilmhs = new MahasiswaController();
                     panggilmhs.UpdateMHS(input1);
-                    System.Console.Read();
+                    Console.WriteLine("Sukses");
                     break;
                 case 2:
                     System.Console.Write("Masukkan Id yang ingin di ubah : ");
                     input2 = Convert.ToInt32(System.Console.ReadLine());
                     DosenController panggildosen = new DosenController();
                     panggildosen.UpdateDosen(input2);
-                    System.Console.Read();
+                    Console.WriteLine("Sukses");
                     break;
                 case 3:
                     System.Console.Write("Masukkan Id yang ingin di ubah : ");
                     input3 = Convert.ToInt32(System.Console.ReadLine());
                     MakulController panggilmakul = new MakulController();
                     panggilmakul.UpdateMakul(input3);
-                    System.Console.Read();
+                    Console.WriteLine("Sukses");
                     break;
                 case 4:
                     System.Console.Write("Masukkan Id yang ingin di ubah : ");
                     input4 = Convert.ToInt32(System.Console.ReadLine());
                     JadwalController panggiljadwal = new JadwalController();
                     panggiljadwal.UpdateJadwal(input4);
-                    System.Console.Read();
+                    Console.WriteLine("Sukses");
                     break;
                 case 5:
                     break;
@@ -190,25 +190,28 @@ namespace ADO_DatabaseFirst
                     input1 = Convert.ToInt32(System.Console.ReadLine());
                     MahasiswaController panggilmhs = new MahasiswaController();
                     panggilmhs.DeleteMahasiswa(input1);
-                    System.Console.Read();
+                    Console.WriteLine("Sukses");
                     break;
                 case 2:
                     System.Console.Write("Masukkan Id yang ingin di hapus : ");
                     input2 = Convert.ToInt32(System.Console.ReadLine());
                     DosenController panggildosen = new DosenController();
                     panggildosen.DeleteDosen(input2);
+                    Console.WriteLine("Sukses");
                     break;
                 case 3:
                     System.Console.Write("Masukkan Id yang ingin di hapus : ");
                     input3 = Convert.ToInt32(System.Console.ReadLine());
                     MakulController panggilmakul = new MakulController();
                     panggilmakul.DeleteMakul(input3);
+                    Console.WriteLine("Sukses");
                     break;
                 case 4:
                     System.Console.Write("Masukkan Id yang ingin di hapus : ");
                     input4 = Convert.ToInt32(System.Console.ReadLine());
                     JadwalController panggiljadwal = new JadwalController();
                     panggiljadwal.DeleteJadwal(input4);
+                    Console.WriteLine("Sukses");
                     break;
                 case 5:
                     break;
